@@ -1,0 +1,91 @@
+//import modules
+@import "utility/config";
+
+//defaults
+@threesixty-items: 8;
+@threesixty-viewport-width: 100%;
+@threesixty-viewport-height: 800px;
+@threesixty-viewport-p: 1280px;
+@threesixty-slide-time: 1s;
+@threesixty-background-move: (100% / @threesixty-items);
+@threesixty-viewport-z: unit(((((@threesixty-viewport-width / 100 * @threesixty-viewport-p) / -2) / tan(pi() / @threesixty-items))), px);
+
+//define
+.threesixty {
+
+  &--viewport {
+    width: @threesixty-viewport-width;
+    min-height: @threesixty-viewport-height;
+    overflow-x: hidden;
+    position: relative;
+    perspective: @threesixty-viewport-p;
+    perspective-origin: center center;
+    background-position: 0 0;
+    background-size: cover;
+    transition: background-position @threesixty-slide-time ease-in-out;
+    transform: translate3d(0,0,0);
+  }
+
+  &--crop {
+    overflow: hidden;
+  }
+
+  &--axis {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform @threesixty-slide-time ease-in-out;
+  }
+
+  &-item {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 116px;
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity @threesixty-slide-time ease;
+
+    &--scroll {
+      overflow: auto;
+    }
+  }
+
+  [name=threesixty] {
+    position: absolute;
+  }
+
+}
+
+.loop-mix-in(@selector, @index, @from, @to) when (@selector = ".threesixty-item") {
+  &:nth-child(@{index}) {
+    //background: hsla((360 / @to * (@index - @from)), 100%, 50%, 0.8);
+    transform: rotateY(unit((-360 / @to * (@index - @from)), deg)) translateZ((@threesixty-viewport-z));
+  }
+}
+
+.loop-mix-in(@selector, @index, @from, @to) when (@selector = "[name=threesixty]") {
+  &:nth-of-type(@{index}):checked ~ .threesixty--viewport {
+    background-position: (@threesixty-background-move * (@index - @from)) 0;
+  }
+
+  &:nth-of-type(@{index}):checked ~ .threesixty--viewport .threesixty--axis {
+    transform: translateZ((@threesixty-viewport-z * -1)) rotateY(unit((360 / @to * (@index - @from)), deg));
+  }
+
+  &:nth-of-type(@{index}):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(@{index}) {
+    opacity: 1;
+  }
+}
+
+.loop(1, 9, ".threesixty-item");
+.loop(1, 9, "[name=threesixty]");
+
+
+
+

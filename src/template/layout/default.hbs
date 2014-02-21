@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{default title page.basename}}</title>
+    <meta name="description" content="{{description}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">{{#if typekit.id}}
+        <script type="text/javascript" src="//{{typekit.host}}/{{typekit.id}}.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    {{/if}}<!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    {{{css styles}}}
+</head>
+<body class="text layout">
+    <header class="header">
+        {{> header }}
+    </header>
+    {{> body }}
+    <footer class="footer">
+        {{> footer }}
+    </footer>
+    {{{js scripts}}}
+</body>
+</html>

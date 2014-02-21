@@ -1,0 +1,26 @@
+
+//inline vendor css
+@import "utility/inline";
+//import apps
+@import "threesixty";
+@import "demo";
+//initialize apps
+@text-family: le-havre-rounded, sans-serif;
+@root-fill: #222222;
+@root-color: contrast(@root-fill);
+@threesixty-viewport-height: 100%;
+@threesixty-viewport-p: 1280px;
+
+html {
+  background-color: @root-fill;
+  color: @root-color;
+}
+
+h2 {
+  position: relative;
+  z-index: 1;
+}
+
+.footer a {
+  color: @root-color;
+}

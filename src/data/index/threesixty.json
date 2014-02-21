@@ -1,0 +1,39 @@
+{
+    "background": {
+        "asset": "img/panorama.jpg"
+    },
+    "items": [
+        {
+            "title": "1",
+            "asset": "img/crb00586.jpg"
+        },
+        {
+            "title": "2",
+            "asset": "img/hwb00235.jpg"
+        },
+        {
+            "title": "3",
+            "asset": "img/lsw00056.jpg"
+        },
+        {
+            "title": "4",
+            "asset": "img/lsw00099.jpg"
+        },
+        {
+            "title": "5",
+            "asset": "img/med00711.jpg"
+        },
+        {
+            "title": "6",
+            "asset": "img/s0002330.jpg"
+        },
+        {
+            "title": "7",
+            "asset": "img/s0002337.jpg"
+        },
+        {
+            "title": "8",
+            "asset": "img/tde00014.jpg"
+        }
+    ]
+}
