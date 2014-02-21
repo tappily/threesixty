@@ -1,0 +1,68 @@
+html {
+  font-size: 100%;
+}
+.text {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+}
+.footer {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: normal;
+}
+.text--space-x0 {
+  padding: 0ex 0em;
+}
+.text--space-x1 {
+  padding: 1ex 1em;
+}
+.text--space-x2 {
+  padding: 2ex 2em;
+}
+.text--space-x3 {
+  padding: 3ex 3em;
+}
+.text--space-x4 {
+  padding: 4ex 4em;
+}
+.text--space-x5 {
+  padding: 5ex 5em;
+}
+.text--space-x6 {
+  padding: 6ex 6em;
+}
+html {
+  height: 100%;
+  position: relative;
+}
+.layout {
+  position: relative;
+  height: 100%;
+}
+.header {
+  padding: 1ex 1em;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  height: 3rem;
+}
+.content {
+  position: relative;
+  height: 100%;
+  overflow: auto;
+}
+.hero {
+  max-width: 50%;
+  min-width: 50%;
+  margin: 0 auto;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 3rem;
+  padding: 1ex 1em;
+}
