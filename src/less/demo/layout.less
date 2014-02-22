@@ -23,9 +23,15 @@ html {
 .content {
   position: relative;
   display: flex;
-  height: 100%;
   overflow: auto;
   background-color: #ffffff;
+  color: contrast(#ffffff);
+  .root-font-size(20px);
+  .tk-variation(light);
+
+  & > p {
+    .text-space(1);
+  }
 }
 
 .hero {

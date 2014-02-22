@@ -2,8 +2,10 @@
 @import "utility/config";
 
 //defaults
+@threesixty-fill: #222222;
 @threesixty-items: 8;
 @threesixty-viewport-width: 100%;
+@threesixty-viewport-min-height: 400px;
 @threesixty-viewport-height: 800px;
 @threesixty-viewport-p: 1280px;
 @threesixty-slide-time: 1s;
@@ -21,22 +23,33 @@
 
 //define
 .threesixty {
+  height: @threesixty-viewport-min-height;
+  position: relative;
 
   &--viewport {
+    min-height: 100%;
+
     width: @threesixty-viewport-width;
-    min-height: @threesixty-viewport-height;
     overflow-x: hidden;
     position: relative;
+
     perspective: @threesixty-viewport-p;
     perspective-origin: center center;
+
     background-position: 0 0;
     background-size: cover;
+
     transition: background-position @threesixty-slide-time ease-in-out;
     transform: translate3d(0,0,0);
   }
 
   &--crop {
     overflow: hidden;
+  }
+
+  &--fill {
+    background-color: @threesixty-fill;
+    color: contrast(@threesixty-fill);
   }
 
   &--axis {
@@ -83,9 +96,19 @@
 
 }
 
-[name=threesixty] {
+[name^=threesixty] {
   position: absolute;
   z-index: -1;
+}
+
+[name=threesixty-expand] ~ .threesixty {
+  transition: height @threesixty-slide-time;
+  overflow-y: hidden;
+  height: @threesixty-viewport-min-height;
+}
+
+[name=threesixty-expand]:checked ~ .threesixty {
+  height: @threesixty-viewport-height;
 }
 
 .loop-mix-in(@selector, @index, @from, @to) when (@selector = ".threesixty-item") {
@@ -96,15 +119,15 @@
 }
 
 .loop-mix-in(@selector, @index, @from, @to) when (@selector = "[name=threesixty]") {
-  &:nth-of-type(@{index}):checked ~ .threesixty--viewport {
+  &:nth-child(@{index}):checked ~ .threesixty--viewport {
     background-position: (@threesixty-background-move * (@index - @from)) 0;
   }
 
-  &:nth-of-type(@{index}):checked ~ .threesixty--viewport .threesixty--axis {
+  &:nth-child(@{index}):checked ~ .threesixty--viewport .threesixty--axis {
     transform: translateZ((@threesixty-viewport-z * -1)) rotateY(unit((360 / @to * (@index - @from)), deg));
   }
 
-  &:nth-of-type(@{index}):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(@{index}) {
+  &:nth-child(@{index}):checked ~ .threesixty--viewport .threesixty-item:nth-child(@{index}) {
     opacity: 1;
     animation-name: threesixty-show-controls;
     animation-direction: normal;
