@@ -14,9 +14,29 @@
     visibility: visible;
   }
 }
+@-webkit-keyframes threesixty-hide-controls {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+@keyframes threesixty-hide-controls {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+.threesixty {
+  height: 400px;
+  position: relative;
+}
 .threesixty--viewport {
+  min-height: 100%;
   width: 100%;
-  min-height: 800px;
   overflow-x: hidden;
   position: relative;
   -webkit-perspective: 1280px;
@@ -36,6 +56,10 @@
 }
 .threesixty--crop {
   overflow: hidden;
+}
+.threesixty--fill {
+  background-color: #222222;
+  color: #ffffff;
 }
 .threesixty--axis {
   width: 100%;
@@ -68,225 +92,186 @@
   color: white;
   text-align: center;
   opacity: 0;
-  visibility: hidden;
-  -webkit-animation: threesixty-show-controls 1s;
-  animation: threesixty-show-controls 1s;
-  -webkit-animation-direction: reverse;
-  animation-direction: reverse;
+  -webkit-animation: threesixty-hide-controls 1s forwards;
+  animation: threesixty-hide-controls 1s forwards;
   -webkit-transition: opacity 1s ease;
   transition: opacity 1s ease;
 }
 .threesixty-item--scroll {
   overflow: auto;
 }
-[name=threesixty] {
+[name^=threesixty] {
   position: absolute;
   z-index: -1;
 }
+[name=threesixty-expand] ~ .threesixty {
+  -webkit-transition: height 1s;
+  transition: height 1s;
+  overflow-y: hidden;
+  height: 400px;
+}
+[name=threesixty-expand]:checked ~ .threesixty {
+  height: 800px;
+}
 .threesixty-item:nth-child(1) {
-  -webkit-transform: rotateY(0deg) translateZ(-1545.0966799187809px);
-  -ms-transform: rotateY(0deg) translateZ(-1545.0966799187809px);
-  transform: rotateY(0deg) translateZ(-1545.0966799187809px);
+  -webkit-transform: rotateY(0deg) translateZ(-1545px);
+  -ms-transform: rotateY(0deg) translateZ(-1545px);
+  transform: rotateY(0deg) translateZ(-1545px);
 }
 .threesixty-item:nth-child(2) {
-  -webkit-transform: rotateY(-40deg) translateZ(-1545.0966799187809px);
-  -ms-transform: rotateY(-40deg) translateZ(-1545.0966799187809px);
-  transform: rotateY(-40deg) translateZ(-1545.0966799187809px);
+  -webkit-transform: rotateY(-40deg) translateZ(-1545px);
+  -ms-transform: rotateY(-40deg) translateZ(-1545px);
+  transform: rotateY(-40deg) translateZ(-1545px);
 }
 .threesixty-item:nth-child(3) {
-  -webkit-transform: rotateY(-80deg) translateZ(-1545.0966799187809px);
-  -ms-transform: rotateY(-80deg) translateZ(-1545.0966799187809px);
-  transform: rotateY(-80deg) translateZ(-1545.0966799187809px);
+  -webkit-transform: rotateY(-80deg) translateZ(-1545px);
+  -ms-transform: rotateY(-80deg) translateZ(-1545px);
+  transform: rotateY(-80deg) translateZ(-1545px);
 }
 .threesixty-item:nth-child(4) {
-  -webkit-transform: rotateY(-120deg) translateZ(-1545.0966799187809px);
-  -ms-transform: rotateY(-120deg) translateZ(-1545.0966799187809px);
-  transform: rotateY(-120deg) translateZ(-1545.0966799187809px);
+  -webkit-transform: rotateY(-120deg) translateZ(-1545px);
+  -ms-transform: rotateY(-120deg) translateZ(-1545px);
+  transform: rotateY(-120deg) translateZ(-1545px);
 }
 .threesixty-item:nth-child(5) {
-  -webkit-transform: rotateY(-160deg) translateZ(-1545.0966799187809px);
-  -ms-transform: rotateY(-160deg) translateZ(-1545.0966799187809px);
-  transform: rotateY(-160deg) translateZ(-1545.0966799187809px);
+  -webkit-transform: rotateY(-160deg) translateZ(-1545px);
+  -ms-transform: rotateY(-160deg) translateZ(-1545px);
+  transform: rotateY(-160deg) translateZ(-1545px);
 }
 .threesixty-item:nth-child(6) {
-  -webkit-transform: rotateY(-200deg) translateZ(-1545.0966799187809px);
-  -ms-transform: rotateY(-200deg) translateZ(-1545.0966799187809px);
-  transform: rotateY(-200deg) translateZ(-1545.0966799187809px);
+  -webkit-transform: rotateY(-200deg) translateZ(-1545px);
+  -ms-transform: rotateY(-200deg) translateZ(-1545px);
+  transform: rotateY(-200deg) translateZ(-1545px);
 }
 .threesixty-item:nth-child(7) {
-  -webkit-transform: rotateY(-240deg) translateZ(-1545.0966799187809px);
-  -ms-transform: rotateY(-240deg) translateZ(-1545.0966799187809px);
-  transform: rotateY(-240deg) translateZ(-1545.0966799187809px);
+  -webkit-transform: rotateY(-240deg) translateZ(-1545px);
+  -ms-transform: rotateY(-240deg) translateZ(-1545px);
+  transform: rotateY(-240deg) translateZ(-1545px);
 }
 .threesixty-item:nth-child(8) {
-  -webkit-transform: rotateY(-280deg) translateZ(-1545.0966799187809px);
-  -ms-transform: rotateY(-280deg) translateZ(-1545.0966799187809px);
-  transform: rotateY(-280deg) translateZ(-1545.0966799187809px);
+  -webkit-transform: rotateY(-280deg) translateZ(-1545px);
+  -ms-transform: rotateY(-280deg) translateZ(-1545px);
+  transform: rotateY(-280deg) translateZ(-1545px);
 }
 .threesixty-item:nth-child(9) {
-  -webkit-transform: rotateY(-320deg) translateZ(-1545.0966799187809px);
-  -ms-transform: rotateY(-320deg) translateZ(-1545.0966799187809px);
-  transform: rotateY(-320deg) translateZ(-1545.0966799187809px);
+  -webkit-transform: rotateY(-320deg) translateZ(-1545px);
+  -ms-transform: rotateY(-320deg) translateZ(-1545px);
+  transform: rotateY(-320deg) translateZ(-1545px);
 }
-[name=threesixty]:nth-of-type(1):checked ~ .threesixty--viewport {
+[name=threesixty]:nth-child(1):checked ~ .threesixty--viewport {
   background-position: 0% 0;
 }
-[name=threesixty]:nth-of-type(1):checked ~ .threesixty--viewport .threesixty--axis {
-  -webkit-transform: translateZ(1545.0966799187809px) rotateY(0deg);
-  -ms-transform: translateZ(1545.0966799187809px) rotateY(0deg);
-  transform: translateZ(1545.0966799187809px) rotateY(0deg);
+[name=threesixty]:nth-child(1):checked ~ .threesixty--viewport .threesixty--axis {
+  -webkit-transform: translateZ(1545px) rotateY(0deg);
+  -ms-transform: translateZ(1545px) rotateY(0deg);
+  transform: translateZ(1545px) rotateY(0deg);
 }
-[name=threesixty]:nth-of-type(1):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(1) {
+[name=threesixty]:nth-child(1):checked ~ .threesixty--viewport .threesixty-item:nth-child(1) {
   opacity: 1;
-  -webkit-animation-name: threesixty-show-controls;
-  animation-name: threesixty-show-controls;
-  -webkit-animation-direction: normal;
-  animation-direction: normal;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-  visibility: visible;
+  -webkit-animation: threesixty-show-controls 1s forwards;
+  animation: threesixty-show-controls 1s forwards;
 }
-[name=threesixty]:nth-of-type(2):checked ~ .threesixty--viewport {
+[name=threesixty]:nth-child(2):checked ~ .threesixty--viewport {
   background-position: 12.5% 0;
 }
-[name=threesixty]:nth-of-type(2):checked ~ .threesixty--viewport .threesixty--axis {
-  -webkit-transform: translateZ(1545.0966799187809px) rotateY(40deg);
-  -ms-transform: translateZ(1545.0966799187809px) rotateY(40deg);
-  transform: translateZ(1545.0966799187809px) rotateY(40deg);
+[name=threesixty]:nth-child(2):checked ~ .threesixty--viewport .threesixty--axis {
+  -webkit-transform: translateZ(1545px) rotateY(40deg);
+  -ms-transform: translateZ(1545px) rotateY(40deg);
+  transform: translateZ(1545px) rotateY(40deg);
 }
-[name=threesixty]:nth-of-type(2):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(2) {
+[name=threesixty]:nth-child(2):checked ~ .threesixty--viewport .threesixty-item:nth-child(2) {
   opacity: 1;
-  -webkit-animation-name: threesixty-show-controls;
-  animation-name: threesixty-show-controls;
-  -webkit-animation-direction: normal;
-  animation-direction: normal;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-  visibility: visible;
+  -webkit-animation: threesixty-show-controls 1s forwards;
+  animation: threesixty-show-controls 1s forwards;
 }
-[name=threesixty]:nth-of-type(3):checked ~ .threesixty--viewport {
+[name=threesixty]:nth-child(3):checked ~ .threesixty--viewport {
   background-position: 25% 0;
 }
-[name=threesixty]:nth-of-type(3):checked ~ .threesixty--viewport .threesixty--axis {
-  -webkit-transform: translateZ(1545.0966799187809px) rotateY(80deg);
-  -ms-transform: translateZ(1545.0966799187809px) rotateY(80deg);
-  transform: translateZ(1545.0966799187809px) rotateY(80deg);
+[name=threesixty]:nth-child(3):checked ~ .threesixty--viewport .threesixty--axis {
+  -webkit-transform: translateZ(1545px) rotateY(80deg);
+  -ms-transform: translateZ(1545px) rotateY(80deg);
+  transform: translateZ(1545px) rotateY(80deg);
 }
-[name=threesixty]:nth-of-type(3):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(3) {
+[name=threesixty]:nth-child(3):checked ~ .threesixty--viewport .threesixty-item:nth-child(3) {
   opacity: 1;
-  -webkit-animation-name: threesixty-show-controls;
-  animation-name: threesixty-show-controls;
-  -webkit-animation-direction: normal;
-  animation-direction: normal;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-  visibility: visible;
+  -webkit-animation: threesixty-show-controls 1s forwards;
+  animation: threesixty-show-controls 1s forwards;
 }
-[name=threesixty]:nth-of-type(4):checked ~ .threesixty--viewport {
+[name=threesixty]:nth-child(4):checked ~ .threesixty--viewport {
   background-position: 37.5% 0;
 }
-[name=threesixty]:nth-of-type(4):checked ~ .threesixty--viewport .threesixty--axis {
-  -webkit-transform: translateZ(1545.0966799187809px) rotateY(120deg);
-  -ms-transform: translateZ(1545.0966799187809px) rotateY(120deg);
-  transform: translateZ(1545.0966799187809px) rotateY(120deg);
+[name=threesixty]:nth-child(4):checked ~ .threesixty--viewport .threesixty--axis {
+  -webkit-transform: translateZ(1545px) rotateY(120deg);
+  -ms-transform: translateZ(1545px) rotateY(120deg);
+  transform: translateZ(1545px) rotateY(120deg);
 }
-[name=threesixty]:nth-of-type(4):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(4) {
+[name=threesixty]:nth-child(4):checked ~ .threesixty--viewport .threesixty-item:nth-child(4) {
   opacity: 1;
-  -webkit-animation-name: threesixty-show-controls;
-  animation-name: threesixty-show-controls;
-  -webkit-animation-direction: normal;
-  animation-direction: normal;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-  visibility: visible;
+  -webkit-animation: threesixty-show-controls 1s forwards;
+  animation: threesixty-show-controls 1s forwards;
 }
-[name=threesixty]:nth-of-type(5):checked ~ .threesixty--viewport {
+[name=threesixty]:nth-child(5):checked ~ .threesixty--viewport {
   background-position: 50% 0;
 }
-[name=threesixty]:nth-of-type(5):checked ~ .threesixty--viewport .threesixty--axis {
-  -webkit-transform: translateZ(1545.0966799187809px) rotateY(160deg);
-  -ms-transform: translateZ(1545.0966799187809px) rotateY(160deg);
-  transform: translateZ(1545.0966799187809px) rotateY(160deg);
+[name=threesixty]:nth-child(5):checked ~ .threesixty--viewport .threesixty--axis {
+  -webkit-transform: translateZ(1545px) rotateY(160deg);
+  -ms-transform: translateZ(1545px) rotateY(160deg);
+  transform: translateZ(1545px) rotateY(160deg);
 }
-[name=threesixty]:nth-of-type(5):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(5) {
+[name=threesixty]:nth-child(5):checked ~ .threesixty--viewport .threesixty-item:nth-child(5) {
   opacity: 1;
-  -webkit-animation-name: threesixty-show-controls;
-  animation-name: threesixty-show-controls;
-  -webkit-animation-direction: normal;
-  animation-direction: normal;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-  visibility: visible;
+  -webkit-animation: threesixty-show-controls 1s forwards;
+  animation: threesixty-show-controls 1s forwards;
 }
-[name=threesixty]:nth-of-type(6):checked ~ .threesixty--viewport {
+[name=threesixty]:nth-child(6):checked ~ .threesixty--viewport {
   background-position: 62.5% 0;
 }
-[name=threesixty]:nth-of-type(6):checked ~ .threesixty--viewport .threesixty--axis {
-  -webkit-transform: translateZ(1545.0966799187809px) rotateY(200deg);
-  -ms-transform: translateZ(1545.0966799187809px) rotateY(200deg);
-  transform: translateZ(1545.0966799187809px) rotateY(200deg);
+[name=threesixty]:nth-child(6):checked ~ .threesixty--viewport .threesixty--axis {
+  -webkit-transform: translateZ(1545px) rotateY(200deg);
+  -ms-transform: translateZ(1545px) rotateY(200deg);
+  transform: translateZ(1545px) rotateY(200deg);
 }
-[name=threesixty]:nth-of-type(6):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(6) {
+[name=threesixty]:nth-child(6):checked ~ .threesixty--viewport .threesixty-item:nth-child(6) {
   opacity: 1;
-  -webkit-animation-name: threesixty-show-controls;
-  animation-name: threesixty-show-controls;
-  -webkit-animation-direction: normal;
-  animation-direction: normal;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-  visibility: visible;
+  -webkit-animation: threesixty-show-controls 1s forwards;
+  animation: threesixty-show-controls 1s forwards;
 }
-[name=threesixty]:nth-of-type(7):checked ~ .threesixty--viewport {
+[name=threesixty]:nth-child(7):checked ~ .threesixty--viewport {
   background-position: 75% 0;
 }
-[name=threesixty]:nth-of-type(7):checked ~ .threesixty--viewport .threesixty--axis {
-  -webkit-transform: translateZ(1545.0966799187809px) rotateY(240deg);
-  -ms-transform: translateZ(1545.0966799187809px) rotateY(240deg);
-  transform: translateZ(1545.0966799187809px) rotateY(240deg);
+[name=threesixty]:nth-child(7):checked ~ .threesixty--viewport .threesixty--axis {
+  -webkit-transform: translateZ(1545px) rotateY(240deg);
+  -ms-transform: translateZ(1545px) rotateY(240deg);
+  transform: translateZ(1545px) rotateY(240deg);
 }
-[name=threesixty]:nth-of-type(7):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(7) {
+[name=threesixty]:nth-child(7):checked ~ .threesixty--viewport .threesixty-item:nth-child(7) {
   opacity: 1;
-  -webkit-animation-name: threesixty-show-controls;
-  animation-name: threesixty-show-controls;
-  -webkit-animation-direction: normal;
-  animation-direction: normal;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-  visibility: visible;
+  -webkit-animation: threesixty-show-controls 1s forwards;
+  animation: threesixty-show-controls 1s forwards;
 }
-[name=threesixty]:nth-of-type(8):checked ~ .threesixty--viewport {
+[name=threesixty]:nth-child(8):checked ~ .threesixty--viewport {
   background-position: 87.5% 0;
 }
-[name=threesixty]:nth-of-type(8):checked ~ .threesixty--viewport .threesixty--axis {
-  -webkit-transform: translateZ(1545.0966799187809px) rotateY(280deg);
-  -ms-transform: translateZ(1545.0966799187809px) rotateY(280deg);
-  transform: translateZ(1545.0966799187809px) rotateY(280deg);
+[name=threesixty]:nth-child(8):checked ~ .threesixty--viewport .threesixty--axis {
+  -webkit-transform: translateZ(1545px) rotateY(280deg);
+  -ms-transform: translateZ(1545px) rotateY(280deg);
+  transform: translateZ(1545px) rotateY(280deg);
 }
-[name=threesixty]:nth-of-type(8):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(8) {
+[name=threesixty]:nth-child(8):checked ~ .threesixty--viewport .threesixty-item:nth-child(8) {
   opacity: 1;
-  -webkit-animation-name: threesixty-show-controls;
-  animation-name: threesixty-show-controls;
-  -webkit-animation-direction: normal;
-  animation-direction: normal;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-  visibility: visible;
+  -webkit-animation: threesixty-show-controls 1s forwards;
+  animation: threesixty-show-controls 1s forwards;
 }
-[name=threesixty]:nth-of-type(9):checked ~ .threesixty--viewport {
+[name=threesixty]:nth-child(9):checked ~ .threesixty--viewport {
   background-position: 100% 0;
 }
-[name=threesixty]:nth-of-type(9):checked ~ .threesixty--viewport .threesixty--axis {
-  -webkit-transform: translateZ(1545.0966799187809px) rotateY(320deg);
-  -ms-transform: translateZ(1545.0966799187809px) rotateY(320deg);
-  transform: translateZ(1545.0966799187809px) rotateY(320deg);
+[name=threesixty]:nth-child(9):checked ~ .threesixty--viewport .threesixty--axis {
+  -webkit-transform: translateZ(1545px) rotateY(320deg);
+  -ms-transform: translateZ(1545px) rotateY(320deg);
+  transform: translateZ(1545px) rotateY(320deg);
 }
-[name=threesixty]:nth-of-type(9):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(9) {
+[name=threesixty]:nth-child(9):checked ~ .threesixty--viewport .threesixty-item:nth-child(9) {
   opacity: 1;
-  -webkit-animation-name: threesixty-show-controls;
-  animation-name: threesixty-show-controls;
-  -webkit-animation-direction: normal;
-  animation-direction: normal;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-  visibility: visible;
+  -webkit-animation: threesixty-show-controls 1s forwards;
+  animation: threesixty-show-controls 1s forwards;
 }

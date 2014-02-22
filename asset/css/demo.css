@@ -56,9 +56,16 @@ html {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
   overflow: auto;
   background-color: #ffffff;
+  color: #000000;
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 300;
+  font-style: normal;
+}
+.content > p {
+  padding: 1ex 1em;
 }
 .hero {
   max-width: 50%;
