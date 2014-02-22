@@ -10,7 +10,7 @@
 @threesixty-viewport-p: 1280px;
 @threesixty-slide-time: 1s;
 @threesixty-background-move: (100% / @threesixty-items);
-@threesixty-viewport-z: unit(((((@threesixty-viewport-width / 100 * @threesixty-viewport-p) / -2) / tan(pi() / @threesixty-items))), px);
+@threesixty-viewport-z: unit(round((((@threesixty-viewport-width / 100 * @threesixty-viewport-p) / -2) / tan(pi() / @threesixty-items)), 0), px);
 
 @keyframes threesixty-show-controls {
   0% {
@@ -18,6 +18,16 @@
   }
   100% {
     visibility: visible;
+  }
+}
+
+@keyframes threesixty-hide-controls {
+
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
   }
 }
 
@@ -83,10 +93,7 @@
     color: white;
     text-align: center;
     opacity: 0;
-    visibility: hidden;
-    animation: threesixty-show-controls 1s;
-    animation-direction: reverse;
-    //animation-delay: @threesixty-slide-time;
+    animation: threesixty-hide-controls @threesixty-slide-time forwards;
     transition: opacity @threesixty-slide-time ease;
 
     &--scroll {
@@ -129,10 +136,7 @@
 
   &:nth-child(@{index}):checked ~ .threesixty--viewport .threesixty-item:nth-child(@{index}) {
     opacity: 1;
-    animation-name: threesixty-show-controls;
-    animation-direction: normal;
-    animation-delay: 0;
-    visibility: visible;
+    animation: threesixty-show-controls @threesixty-slide-time forwards;
   }
 }
 
