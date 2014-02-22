@@ -52,8 +52,13 @@ html {
 }
 .content {
   position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   height: 100%;
   overflow: auto;
+  background-color: #ffffff;
 }
 .hero {
   max-width: 50%;

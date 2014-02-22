@@ -425,6 +425,23 @@ th {
   padding: 0;
 }
 
+@-webkit-keyframes threesixty-show-controls {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes threesixty-show-controls {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
 .threesixty--viewport {
   width: 100%;
   min-height: 100%;
@@ -458,6 +475,16 @@ th {
   -webkit-transition: -webkit-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
 }
+.threesixty-start {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+}
+.threesixty-end {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+}
 .threesixty-item {
   display: block;
   position: absolute;
@@ -469,14 +496,20 @@ th {
   color: white;
   text-align: center;
   opacity: 0;
+  visibility: hidden;
+  -webkit-animation: threesixty-show-controls 1s;
+  animation: threesixty-show-controls 1s;
+  -webkit-animation-direction: reverse;
+  animation-direction: reverse;
   -webkit-transition: opacity 1s ease;
   transition: opacity 1s ease;
 }
 .threesixty-item--scroll {
   overflow: auto;
 }
-.threesixty [name=threesixty] {
+[name=threesixty] {
   position: absolute;
+  z-index: -1;
 }
 .threesixty-item:nth-child(1) {
   -webkit-transform: rotateY(0deg) translateZ(-1545.0966799187809px);
@@ -533,6 +566,13 @@ th {
 }
 [name=threesixty]:nth-of-type(1):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(1) {
   opacity: 1;
+  -webkit-animation-name: threesixty-show-controls;
+  animation-name: threesixty-show-controls;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  visibility: visible;
 }
 [name=threesixty]:nth-of-type(2):checked ~ .threesixty--viewport {
   background-position: 12.5% 0;
@@ -544,6 +584,13 @@ th {
 }
 [name=threesixty]:nth-of-type(2):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(2) {
   opacity: 1;
+  -webkit-animation-name: threesixty-show-controls;
+  animation-name: threesixty-show-controls;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  visibility: visible;
 }
 [name=threesixty]:nth-of-type(3):checked ~ .threesixty--viewport {
   background-position: 25% 0;
@@ -555,6 +602,13 @@ th {
 }
 [name=threesixty]:nth-of-type(3):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(3) {
   opacity: 1;
+  -webkit-animation-name: threesixty-show-controls;
+  animation-name: threesixty-show-controls;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  visibility: visible;
 }
 [name=threesixty]:nth-of-type(4):checked ~ .threesixty--viewport {
   background-position: 37.5% 0;
@@ -566,6 +620,13 @@ th {
 }
 [name=threesixty]:nth-of-type(4):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(4) {
   opacity: 1;
+  -webkit-animation-name: threesixty-show-controls;
+  animation-name: threesixty-show-controls;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  visibility: visible;
 }
 [name=threesixty]:nth-of-type(5):checked ~ .threesixty--viewport {
   background-position: 50% 0;
@@ -577,6 +638,13 @@ th {
 }
 [name=threesixty]:nth-of-type(5):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(5) {
   opacity: 1;
+  -webkit-animation-name: threesixty-show-controls;
+  animation-name: threesixty-show-controls;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  visibility: visible;
 }
 [name=threesixty]:nth-of-type(6):checked ~ .threesixty--viewport {
   background-position: 62.5% 0;
@@ -588,6 +656,13 @@ th {
 }
 [name=threesixty]:nth-of-type(6):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(6) {
   opacity: 1;
+  -webkit-animation-name: threesixty-show-controls;
+  animation-name: threesixty-show-controls;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  visibility: visible;
 }
 [name=threesixty]:nth-of-type(7):checked ~ .threesixty--viewport {
   background-position: 75% 0;
@@ -599,6 +674,13 @@ th {
 }
 [name=threesixty]:nth-of-type(7):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(7) {
   opacity: 1;
+  -webkit-animation-name: threesixty-show-controls;
+  animation-name: threesixty-show-controls;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  visibility: visible;
 }
 [name=threesixty]:nth-of-type(8):checked ~ .threesixty--viewport {
   background-position: 87.5% 0;
@@ -610,6 +692,13 @@ th {
 }
 [name=threesixty]:nth-of-type(8):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(8) {
   opacity: 1;
+  -webkit-animation-name: threesixty-show-controls;
+  animation-name: threesixty-show-controls;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  visibility: visible;
 }
 [name=threesixty]:nth-of-type(9):checked ~ .threesixty--viewport {
   background-position: 100% 0;
@@ -621,6 +710,13 @@ th {
 }
 [name=threesixty]:nth-of-type(9):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(9) {
   opacity: 1;
+  -webkit-animation-name: threesixty-show-controls;
+  animation-name: threesixty-show-controls;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  visibility: visible;
 }
 html {
   font-size: 100%;
@@ -676,8 +772,13 @@ html {
 }
 .content {
   position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   height: 100%;
   overflow: auto;
+  background-color: #ffffff;
 }
 .hero {
   max-width: 50%;
