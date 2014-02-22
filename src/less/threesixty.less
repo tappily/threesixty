@@ -10,6 +10,15 @@
 @threesixty-background-move: (100% / @threesixty-items);
 @threesixty-viewport-z: unit(((((@threesixty-viewport-width / 100 * @threesixty-viewport-p) / -2) / tan(pi() / @threesixty-items))), px);
 
+@keyframes threesixty-show-controls {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
 //define
 .threesixty {
 
@@ -38,6 +47,18 @@
     transition: transform @threesixty-slide-time ease-in-out;
   }
 
+  &-start {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+  }
+
+  &-end {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+  }
+
   &-item {
     display: block;
     position: absolute;
@@ -49,6 +70,10 @@
     color: white;
     text-align: center;
     opacity: 0;
+    visibility: hidden;
+    animation: threesixty-show-controls 1s;
+    animation-direction: reverse;
+    //animation-delay: @threesixty-slide-time;
     transition: opacity @threesixty-slide-time ease;
 
     &--scroll {
@@ -56,10 +81,11 @@
     }
   }
 
-  [name=threesixty] {
-    position: absolute;
-  }
+}
 
+[name=threesixty] {
+  position: absolute;
+  z-index: -1;
 }
 
 .loop-mix-in(@selector, @index, @from, @to) when (@selector = ".threesixty-item") {
@@ -80,12 +106,12 @@
 
   &:nth-of-type(@{index}):checked ~ .threesixty--viewport .threesixty-item:nth-of-type(@{index}) {
     opacity: 1;
+    animation-name: threesixty-show-controls;
+    animation-direction: normal;
+    animation-delay: 0;
+    visibility: visible;
   }
 }
 
 .loop(1, 9, ".threesixty-item");
 .loop(1, 9, "[name=threesixty]");
-
-
-
-

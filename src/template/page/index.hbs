@@ -1,19 +1,26 @@
-<div class="content">
-    {{#each threesixty.items}}
-        <input id="threesixty-radio-{{@index}}"
-               type="radio"
-               name="threesixty"
-               {{#is @index 0}}checked{{/is}} />
-    {{/each}}
-    <div class="threesixty threesixty--viewport" style="background-image: url({{assets}}/{{threesixty.background.asset}})">
-        <div class="threesixty--axis">
+{{#each threesixty.items}}
+    <input id="threesixty-radio-{{title}}"
+           type="radio"
+           name="threesixty"
+           {{#is @index 0}}checked{{/is}} />
+{{/each}}
+<div class="threesixty threesixty--viewport" style="background-image: url({{assets}}/{{threesixty.background.asset}})">
+    <div class="threesixty--axis">
         {{#each threesixty.items}}
             <div class="threesixty-item">
                 <h2>{{title}}</h2>
                 <img class="hero" src="{{../assets}}/{{asset}}"/>
-                <label for="threesixty-radio-{{@index}}">{{title}}</label>
+                {{#each nav}}
+                    <label class="threesixty-{{style}}" for="threesixty-radio-{{./value}}">{{title}}</label>
+                {{/each}}
             </div>
         {{/each}}
-        </div>
     </div>
+</div>
+<input id="content-{{title}}"
+       type="radio"
+       name="threesixty"
+       {{#is @index 0}}checked{{/is}} />
+<div class="content">
+
 </div>
